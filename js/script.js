@@ -61,27 +61,28 @@ function createCactus() {
             cactus.style.left = cactusPosition + 'px';
         }
     }, 20);
-
     setTimeout(createCactus, randomTime);
 }
 
 function createClouds() {
     const cloud = document.createElement('div');
+    let randomTime = Math.random() * 1150;
+    let YAxis = Math.random() * 120 + 250;
     let cloudPosition = 1000;
-    let randomTime = Math.random() * 1000;
 
     cloud.classList.add('cloud');
+    cloud.style.bottom = YAxis + 'px';
     cloud.style.left = 1000 + 'px';
     background.appendChild(cloud);
     let leftInterval = setInterval(() => {
-        if (cloudPosition < -250) {
+        if (cloudPosition < -300) {
             clearInterval(leftInterval);
             background.removeChild(cloud);
         } else {
             cloudPosition -= 10;
             cloud.style.left = cloudPosition + 'px';
         }
-    }, 25);
+    }, 27);
     setTimeout(createClouds, randomTime);
 }
 
