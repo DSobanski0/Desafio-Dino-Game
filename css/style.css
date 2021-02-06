@@ -28,6 +28,15 @@ body {
     background-image: url(../images/cactus.png);
 }
 
+.birds {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-image: url(../images/bird.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
 .cloud {
     position: absolute;
     width: 300px;

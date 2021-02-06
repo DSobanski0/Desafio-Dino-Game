@@ -41,7 +41,7 @@ function jump() {
 function createCactus() {
     const cactus = document.createElement('div');
     let cactusPosition = 1000;
-    let randomTime = Math.random() * 1000 + 600;
+    let randomTime = Math.random() * 1000 + 500;
 
     cactus.classList.add('cactus');
     cactus.style.left = 1000 + 'px';
@@ -64,16 +64,40 @@ function createCactus() {
     setTimeout(createCactus, randomTime);
 }
 
+function createBirds() {
+    const birds = document.createElement('div');
+    let birdsPosition = 1000;
+    let randomTime = Math.random() * 2000 + 2000;
+    let yAxis = Math.random() * 120 + 150;
+
+    birds.classList.add('birds');
+    birds.style.bottom = yAxis + 'px';
+    birds.style.left = 1000 + 'px';
+    background.appendChild(birds);
+
+    let leftInterval = setInterval(() => {
+        if (birdsPosition < -60) {
+            clearInterval(leftInterval);
+            background.removeChild(birds);
+        } else {
+            birdsPosition -= 10;
+            birds.style.left = birdsPosition + 'px';
+        }
+    }, 22);
+    setTimeout(createBirds, randomTime);
+}
+
 function createClouds() {
     const cloud = document.createElement('div');
     let randomTime = Math.random() * 1150;
-    let YAxis = Math.random() * 120 + 250;
+    let yAxis = Math.random() * 120 + 250;
     let cloudPosition = 1000;
 
     cloud.classList.add('cloud');
-    cloud.style.bottom = YAxis + 'px';
+    cloud.style.bottom = yAxis + 'px';
     cloud.style.left = 1000 + 'px';
     background.appendChild(cloud);
+    
     let leftInterval = setInterval(() => {
         if (cloudPosition < -300) {
             clearInterval(leftInterval);
@@ -82,10 +106,11 @@ function createClouds() {
             cloudPosition -= 10;
             cloud.style.left = cloudPosition + 'px';
         }
-    }, 27);
+    }, 28);
     setTimeout(createClouds, randomTime);
 }
 
+createBirds();
 createClouds();
 createCactus();
 document.addEventListener('keydown', handleKeyDown);
