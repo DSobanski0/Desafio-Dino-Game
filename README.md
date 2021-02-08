@@ -1,4 +1,4 @@
-# Curso-Dino-Game
+# Desafio-Dino-Game
 
 Desafio da Digital Innovation One utilizando HTML, CSS e JavaScript
 
